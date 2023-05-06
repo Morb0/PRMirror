@@ -1,0 +1,14 @@
+[package]
+name = "prmirror"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tracing = "0.1"
+tracing-subscriber = "0.3"
+env_logger = "0.10"
+dotenvy = "0.15"
+tokio = { version = "1.25", features = ["macros", "rt-multi-thread"] }
+futures-util = { version = "0.3" }
+octocrab = { version = "0.21", features = ["stream"] }
+jammdb = "0.9"
