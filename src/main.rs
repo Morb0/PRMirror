@@ -100,7 +100,11 @@ async fn main() {
             debug!("create PR mirror branch");
             let pr_title = pr.title.unwrap_or("Unknown".to_string());
             let output = Command::new("../../merge-upstream-pull-request.sh")
-                .args([&pr.number.to_string(), &pr_title])
+                .args([
+                    &pr.number.to_string(),
+                    &pr_title,
+                    &format!("{}/{}", &upstream_owner, &upstream_repo),
+                ])
                 .current_dir(REPO_DIR)
                 .output()
                 .expect("failed to run merge-upstream-pull-request.sh");

@@ -4,7 +4,7 @@ set -f # disable pathname expansion
 set -C # noclobber
 
 readonly BASE_BRANCH_NAME="upstream-merge-"
-readonly BASE_PULL_URL="https://api.github.com/repos/space-wizards/space-station-14/pulls"
+readonly BASE_PULL_URL="https://api.github.com/repos/$3/pulls"
 
 # Ensure the current directory is a git directory
 if [ ! -d .git ]; then
@@ -33,7 +33,7 @@ containsElement () {
 
 # Make sure we have our upstream remote
 if ! git remote | grep upstream > /dev/null; then
-   git remote add upstream https://github.com/space-wizards/space-station-14.git
+   git remote add upstream https://github.com/$3.git
 fi
 
 # We need to make sure we are always on a clean master when creating the new branch.
